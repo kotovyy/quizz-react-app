@@ -1,0 +1,157 @@
+body {
+    background: #E5E5E5;
+    margin: 0;
+    font-family: 'Inter';
+    font-style: normal;
+}
+
+.wrapper {
+    position: relative;
+    height: 100vh;
+    color: #293264;
+}
+
+.wrapper:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 194px;
+    height: 197px;
+    z-index: -1;
+    background: url(data:image/svg+xml,%3Csvg%20width%3D%22194%22%20height%3D%22197%22%20viewBox%3D%220%200%20194%20197%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M99.4095%2081.3947C71.1213%2050.8508%2033.3179%2021.7816%2037.1727%20-19.6933C41.4394%20-65.599%2075.854%20-105.359%20118.419%20-123.133C158.797%20-139.994%20206.035%20-130.256%20241.822%20-105.149C271.947%20-84.0141%20272.823%20-43.8756%20282.141%20-8.27104C292.17%2030.0508%20318.521%2070.8106%20296.501%20103.779C273.538%20138.159%20224.991%20143.432%20183.931%20138.768C148.318%20134.723%20123.751%20107.677%2099.4095%2081.3947Z%22%20fill%3D%22%23FFFAD1%22%2F%3E%0A%3C%2Fsvg%3E%0A);
+}
+
+.wrapper:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 148px;
+    height: 118px;
+    z-index: -1;
+    background: url(data:image/svg+xml,%3Csvg%20width%3D%22148%22%20height%3D%22118%22%20viewBox%3D%220%200%20148%20118%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M-5.55191%204.90596C35.9614%201.77498%2082.2425%20-9.72149%20112.306%2019.1094C145.581%2051.0203%20155.282%20102.703%20142.701%20147.081C130.767%20189.18%2093.7448%20220.092%2051.8208%20232.476C16.5281%20242.902%20-15.4332%20218.605%20-49.1007%20203.738C-85.3375%20187.737%20-133.641%20182.993%20-145.741%20145.239C-158.358%20105.868%20-132.269%2064.5881%20-103.064%2035.3528C-77.7328%209.99541%20-41.2727%207.60006%20-5.55191%204.90596Z%22%20fill%3D%22%23DEEBF8%22%2F%3E%0A%3C%2Fsvg%3E%0A);
+}
+
+.welcome-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
+}
+
+.welcome-header {
+    margin: 0 0 20px 0;
+    font-size: 31px;
+    line-height: 39px;
+    font-family: 'Karla', Arial, sans-serif;
+    font-weight: 700;
+}
+
+.btn {
+    border: none;
+    color: #F5F7FB;
+    background: #4D5B9E;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px;
+    border-radius: 14px;
+    padding: 15px 60px;
+    cursor: pointer;
+    transition: background .2s linear;
+}
+
+.btn:hover {
+    background: #7788d9;
+}
+
+.question-wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.questions {
+    padding: 50px 50px 30px;
+}
+
+.question {
+    padding-bottom: 14px;
+    border-bottom: 1px solid #DBDEF0;
+    margin-bottom: 15px;
+}
+
+.question:last-child {
+    border: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.question-subject {
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'Karla', Arial, sans-serif;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.question-option {
+    font-size: 12px;
+    line-height: 20px;
+    font-family: 'Inter', Arial, sans-serif;
+    font-weight: 500;
+    border-radius: 7px;
+    border: 1px solid #4D5B9E;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    padding: 0 21px;
+    margin-right: 13px;
+    margin-bottom: 10px;
+}
+
+.question-option:hover {
+    border-color: #7990FF;
+}
+
+.question-option:last-child {
+    margin-right: 0;
+}
+
+.question-option--selected {
+    border-color: #D6DBF5;
+    background-color: #D6DBF5;
+}
+
+.question-option--selected:hover {
+    border-color: #D6DBF5;
+}
+
+.question-option--right {
+    border-color: #94D7A2;
+    background-color: #94D7A2;
+    cursor: default;
+}
+
+.question-option--wrong {
+    border-color: #F8BCBC;
+    background-color: #F8BCBC;
+    opacity: .5;
+    cursor: default;
+}
+
+.btn--question {
+    font-size: 12px;
+    padding: 8px 20px;
+}
+
+.result {
+    margin-right: 30px;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+}
