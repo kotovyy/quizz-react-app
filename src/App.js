@@ -18,7 +18,7 @@ export default function App() {
             return {
               key: nanoid(),
               id: nanoid(),
-              question: item.question,
+              question: convert(item.question),
               correctAnswer: item.correct_answer,
               incorrectAnswers: item.incorrect_answers,
               isCorrect: false,
@@ -44,16 +44,6 @@ export default function App() {
     }))
   }
 
-  const questionsList = questions.map((item) => {
-    return (
-        <Question
-          {...item}
-          chooseOption={chooseOption}
-          isQuizzEnded={isQuizzEnded}
-        />
-      )
-  })
-
   function checkAnswers() {
     setIsQuizzEnded(true)
     countCorrectAnswers()
@@ -69,6 +59,22 @@ export default function App() {
     const count = questions.filter((item)=> item.isCorrect === true)
     setCount(count.length)
   }
+
+  function convert(string) { 
+    var text = document.createElement("textarea")
+    text.innerHTML = string
+    return text.value
+}
+
+const questionsList = questions.map((item) => {
+  return (
+      <Question
+        {...item}
+        chooseOption={chooseOption}
+        isQuizzEnded={isQuizzEnded}
+      />
+    )
+})
 
   return (
     <div className='wrapper'>
