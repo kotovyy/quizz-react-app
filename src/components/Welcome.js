@@ -2,14 +2,17 @@ import React from 'react';
 import '../style.css';
 
 
-export default function Welcome(props) {
+export default class Welcome extends React.Component {
 
-    return (
-        <div className="welcome-block">
-            <h1 className="welcome-header">Quizzical!</h1>
-            <button className="btn" onClick={props.startQuizz}>
-                Start quizz
-            </button>
-        </div>
-    );
+    render() {
+        return (
+            <div className="welcome-block">
+                <h1 className="welcome-header">Quizzical!</h1>
+                <button className="btn" onClick={this.props.startQuizz}>
+                    Start quizz
+                </button>
+            </div>
+        );
+    }
+    
   }

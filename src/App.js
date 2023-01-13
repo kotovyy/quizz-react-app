@@ -16,7 +16,7 @@ export default class App extends React.Component {
   getQuestions = () => {
     fetch("https://opentdb.com/api.php?amount=5")
         .then(res => res.json())
-        .then(data => this.setState(prevState => ({
+        .then(data => this.setState({
           questions: data.results.map((item) => {
             return {
               key: nanoid(),
@@ -29,7 +29,7 @@ export default class App extends React.Component {
               isCorrect: false
             }
           })
-        })))
+        }))
 }
 
   componentDidMount() {
@@ -95,7 +95,6 @@ export default class App extends React.Component {
   }
 
   render() {
-
     const questionsList = this.state.questions.map((item) => {
       return (
           <Question

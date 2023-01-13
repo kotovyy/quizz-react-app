@@ -3,42 +3,50 @@ import '../style.css';
 import {nanoid} from "nanoid"
 
 
-export default function Question(props) {
+export default class Question extends React.Component {
 
-    let options = props.incorrectAnswers;
-    if (!(options.includes(props.correctAnswer))) {
-        options.push(props.correctAnswer);
-        options.sort(() => Math.random() - 0.5);
+    
+
+    getOptions = () => {
+        let options = this.props.incorrectAnswers;
+        if (!(options.includes(this.props.correctAnswer))) {
+            options.push(this.props.correctAnswer);
+            options.sort(() => Math.random() - 0.5);
+        }
+    
+        options = options.map((item) => {
+            const selectedClass = 
+                item === this.props.choosenAnswer ? 
+                'question-option--selected' : ''
+    
+            const resultClass = 
+                item === this.props.choosenAnswer && this.props.isCorrect ? 
+                'question-option--right' : 
+                item === this.props.choosenAnswer && !this.props.isCorrect ?
+                'question-option--wrong' : ''
+    
+            const modifiedClass = this.props.isQuizzEnded ? resultClass : selectedClass;
+            
+            return (
+                <span className={ `${modifiedClass} question-option`}
+                    onClick={(event) => this.props.chooseOption(event, this.props.id)}
+                    key={nanoid()}>
+                    {item}
+                </span>
+            )
+        })
+
+        return options
     }
 
-    options = options.map((item) => {
-        const selectedClass = 
-            item === props.choosenAnswer ? 
-            'question-option--selected' : ''
-
-        const resultClass = 
-            item === props.choosenAnswer && props.isCorrect ? 
-            'question-option--right' : 
-            item === props.choosenAnswer && !props.isCorrect ?
-            'question-option--wrong' : ''
-
-        const modifiedClass = props.isQuizzEnded ? resultClass : selectedClass;
-        
+    render() {
         return (
-            <span className={ `${modifiedClass} question-option`}
-                onClick={(event) => props.chooseOption(event, props.id)}
-                key={nanoid()}>
-                {item}
-            </span>
-        )
-    })
-
-    return (
-        <div className='question'>
-            <div className='question-subject'>{props.question}</div>
-            <div className='question-options'>
-                {options}
+            <div className='question'>
+                <div className='question-subject'>{this.props.question}</div>
+                <div className='question-options'>
+                    {this.getOptions()}
+                </div>
             </div>
-        </div>
-        )
+            )
+    }   
 }
